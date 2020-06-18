@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Listen
+Bundle-SymbolicName: Listen;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: cn.com.cxsw.core.Activator
+Bundle-Vendor: lxya
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ src/mysql-connector-java-5.0.8-bin.jar,
+ src/org.swtchart_0.9.0.v20140219.jar
