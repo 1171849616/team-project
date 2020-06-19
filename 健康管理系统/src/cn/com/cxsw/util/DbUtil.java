@@ -14,7 +14,7 @@ import java.util.Map;
 public class DbUtil {
 	private String userName="root";
 	private String userPsw="root";
-	private String url="jdbc:mysql://localhost:3306/new";
+	private String url="jdbc:mysql://localhost:3306/health";
 	private Connection conn=null;
 	private PreparedStatement ps=null;
 	private ResultSet rs=null;
