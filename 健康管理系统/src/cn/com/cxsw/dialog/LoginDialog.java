@@ -118,7 +118,7 @@ public class LoginDialog extends Dialog {
 						MsgUtil.showMsgInfo("阿欧，飘远了！");
 					}
 				}else if(button_2.getSelection()){
-					String sql = "SELECT * FROM keeper WHERE k_id = ? AND k_pword = ? AND k_state = 1";
+					String sql = "SELECT * FROM keeper WHERE k_id = ? AND k_poword = ? AND k_state = 1";
 					List<Map<String,Object>> list = db.query(sql, code,psw);
 					if(list.size() == 1){
 						MsgUtil.showMsgInfo("BIU~安全着陆！");
@@ -151,10 +151,10 @@ public class LoginDialog extends Dialog {
 		composite_2.setBounds(743, 34, 743, 259);
 		
 		Label lbllisten = new Label(composite_2, SWT.NONE);
-		lbllisten.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 20, SWT.BOLD | SWT.ITALIC));
+		lbllisten.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 32, SWT.BOLD | SWT.ITALIC));
 		lbllisten.setForeground(SWTResourceManager.getColor(128, 128, 128));
-		lbllisten.setBounds(173, 87, 428, 65);
-		lbllisten.setText("        \u5065\u5EB7\u7BA1\u7406\u7CFB\u7EDF");
+		lbllisten.setBounds(173, 73, 428, 79);
+		lbllisten.setText(" \u5065\u5EB7\u7BA1\u7406\u7CFB\u7EDF");
 		
 		Composite composite_3 = new Composite(shell, SWT.NONE);
 		composite_3.setBackgroundImage(SWTResourceManager.getImage(LoginDialog.class, "/cn/com/cxsw/imgs/12345.PNG"));

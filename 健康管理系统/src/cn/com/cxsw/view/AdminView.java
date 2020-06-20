@@ -7,7 +7,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 
-import cn.com.cxsw.editor.ShowEditor;
+import cn.com.cxsw.editor.MyDataEditor;
 import cn.com.cxsw.editor.UserAddEditor;
 import cn.com.cxsw.editor.UserQurryEditor;
 import cn.com.cxsw.util.MyInput;
@@ -40,7 +40,7 @@ public class AdminView extends ViewPart {
 				input.setName("我的数据");
 				input.setToolTipText("我的数据");
 				try {
-					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserAddEditor.ID);
+					getSite().getWorkbenchWindow().getActivePage().openEditor(input, MyDataEditor.ID);
 				} catch (PartInitException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -54,7 +54,7 @@ public class AdminView extends ViewPart {
 			button.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
-					MyInput input = new MyInput();
+					/*MyInput input = new MyInput();
 					input.setName("留言");
 					input.setToolTipText("留言");
 					try {
@@ -62,7 +62,7 @@ public class AdminView extends ViewPart {
 					} catch (PartInitException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
-					}
+					}*/
 				}
 			});
 			button.setText("\u7559\u8A00");

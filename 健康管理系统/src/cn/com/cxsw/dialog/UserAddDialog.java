@@ -34,7 +34,6 @@ public class UserAddDialog extends Dialog {
 
 	protected Object result;
 	protected Shell shell;
-	private Text text;
 	private Text text_3;
 	private Text text_4;
 	private DbUtil db=new DbUtil();
@@ -85,45 +84,21 @@ public class UserAddDialog extends Dialog {
 		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		composite.setBounds(0, 0, 1384, 845);
 		
-		Label label_13 = new Label(composite, SWT.NONE);
-		label_13.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_13.setText(" *");
-		label_13.setForeground(SWTResourceManager.getColor(255, 99, 71));
-		label_13.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 12, SWT.BOLD));
-		label_13.setBounds(404, 157, 57, 24);
-		
-		text = new Text(composite, SWT.BORDER);
-		text.addFocusListener(new FocusAdapter() {
-			@Override
-			public void focusLost(FocusEvent e) {
-				// 校验编号
-				String name = text.getText().trim();
-				if (ValidatePassWordUtil.validateName(name)) {
-					label_13.setForeground(SWTResourceManager.getColor(SWT.COLOR_GREEN));
-					label_13.setText(" √ ");
-				} else {
-					label_13.setForeground(SWTResourceManager.getColor(255, 99, 71));
-					label_13.setText(" * ");
-				}
-			}
-		});
-		text.setBounds(202, 160, 196, 30);
-		
 		Label label_1 = new Label(composite, SWT.NONE);
 		label_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		label_1.setText("\u6027\u522B\uFF1A");
-		label_1.setBounds(123, 399, 48, 24);
+		label_1.setBounds(123, 376, 48, 24);
 		
 		Button button = new Button(composite, SWT.RADIO);
 		button.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		button.setText("男");
-		button.setBounds(202, 402, 61, 24);
+		button.setBounds(202, 376, 61, 24);
 		
 		Button button_1 = new Button(composite, SWT.RADIO);
 		button_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		button_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		button_1.setText("女");
-		button_1.setBounds(303, 399, 57, 24);
+		button_1.setBounds(299, 376, 57, 24);
 		
 		Label label_2 = new Label(composite, SWT.NONE);
 		label_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
@@ -136,17 +111,17 @@ public class UserAddDialog extends Dialog {
 		combo.select(2);
 		
 		text_5 = new Text(composite, SWT.BORDER);
-		text_5.setBounds(202, 231, 196, 30);
+		text_5.setBounds(202, 170, 196, 30);
 		
 		Label label_3 = new Label(composite, SWT.NONE);
 		label_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		label_3.setText("\u59D3\u540D\uFF1A");
-		label_3.setBounds(123, 234, 64, 24);
+		label_3.setBounds(123, 173, 64, 24);
 		
 		Label label_7 = new Label(composite, SWT.NONE);
 		label_7.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		label_7.setText("\u5BC6\u7801\uFF1A");
-		label_7.setBounds(123, 315, 57, 24);
+		label_7.setBounds(123, 284, 57, 24);
 		
 		Label label_8 = new Label(composite, SWT.NONE);
 		label_8.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
@@ -156,7 +131,7 @@ public class UserAddDialog extends Dialog {
 		label_8.setText(" *");
 		label_8.setForeground(SWTResourceManager.getColor(255, 99, 71));
 		label_8.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 12, SWT.BOLD));
-		label_8.setBounds(404, 309, 57, 24);
+		label_8.setBounds(404, 284, 57, 24);
 		
 		text_3 = new Text(composite, SWT.BORDER | SWT.PASSWORD);
 		text_3.addFocusListener(new FocusAdapter() {
@@ -173,7 +148,7 @@ public class UserAddDialog extends Dialog {
 				}
 			}
 		});
-		text_3.setBounds(202, 312, 196, 30);
+		text_3.setBounds(202, 281, 196, 30);
 		
 		Label label_14 = new Label(composite, SWT.NONE);
 		label_14.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
@@ -186,14 +161,8 @@ public class UserAddDialog extends Dialog {
 		button_3.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String id = text.getText().trim();
-				//校验编号
-				if ("".equals(id)) {
-					MsgUtil.showMsgInfo("编号不可以为空！");
-					return;
-				}
+				
 				String sql1 = "";
-				String code = text.getText().trim();
 				String name = text_5.getText().trim();
 				String password = text_3.getText().trim();
 				String sex = "";
@@ -220,9 +189,9 @@ public class UserAddDialog extends Dialog {
 				}
 				String fileName = ImageUtils.uploadImg(sourcePath, "images");
 				//执行保存sql
-				String sql = "INSERT INTO USER(u_id,u_name,u_sex,u_p"
-						+ "word,u_nj,u_xy,u_bj,u_city,u_num) VALUES(?,?,?,?,?,?,?,?,?)";
-				int res = db.update(sql,id,code,name,password,sex,d,city,phone,fileName);
+				String sql = "INSERT INTO USER(u_name,u_p"
+						+ "word,u_sex,u_birdate,u_imgs,u_city,u_phone) VALUES(?,?,?,?,?,?,?)";
+				int res = db.update(sql,name,password,sex,d,fileName,city,phone);
 				if (res > 0) {
 					MsgUtil.showMsgOK("注册成功！");
 					shell.close();
@@ -268,11 +237,6 @@ public class UserAddDialog extends Dialog {
 		Label label_12 = new Label(composite, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label_12.setBounds(35, 78, 1294, 2);
 		
-		Label label = new Label(composite, SWT.NONE);
-		label.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label.setBounds(123, 163, 61, 24);
-		label.setText("\u7F16\u53F7\uFF1A");	
-		
 		Label label_4 = new Label(composite, SWT.NONE);
 		label_4.setText("\u51FA\u751F\u5E74\u6708\uFF1A");
 		label_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
@@ -290,6 +254,17 @@ public class UserAddDialog extends Dialog {
 		label_6.setBounds(661, 143, 194, 174);
 		
 		Button button_2 = new Button(composite, SWT.NONE);
+		button_2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				//预览本地照片
+				FileDialog fd = new FileDialog(shell, SWT.OPEN);
+					sourcePath = fd.open();
+					if (sourcePath != null) {
+						ImageUtils.showImg(label_6, sourcePath);
+				}
+			}
+		});
 		button_2.setText("\u9884\u89C8\u5934\u50CF");
 		button_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_CYAN));
 		button_2.setBounds(712, 334, 114, 34);

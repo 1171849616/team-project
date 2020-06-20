@@ -12,8 +12,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import cn.com.cxsw.dialog.Discnum;
-import cn.com.cxsw.dialog.Discshop;
+import cn.com.cxsw.editor.MyDataEditor;
 import cn.com.cxsw.editor.UserAddEditor;
 import cn.com.cxsw.editor.UserQurryEditor;
 import cn.com.cxsw.util.MyInput;
@@ -36,10 +35,10 @@ public class AdminView1 extends ViewPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				MyInput input = new MyInput();
-				input.setName("用户信息查询");
-				input.setToolTipText("用户信息查询");
+				input.setName("上传数据");
+				input.setToolTipText("上传数据");
 				try {
-					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserQurryEditor.ID);
+					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserAddEditor.ID);
 				} catch (PartInitException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -54,26 +53,55 @@ public class AdminView1 extends ViewPart {
 		button_6.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				Discnum dn = new Discnum(container.getShell(), SWT.NONE);
-				dn.open();
+				MyInput input = new MyInput();
+				input.setName("查看患者数据");
+				input.setToolTipText("查看患者数据");
+				try {
+					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserQurryEditor.ID);
+				} catch (PartInitException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
-		});
+					});
 		button_6.setText("\u67E5\u770B\u60A3\u8005\u6570\u636E");
 		button_6.setBounds(37, 341, 322, 134);
 		
 		Button button_7 = new Button(container, SWT.NONE);
 		button_7.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 21, SWT.NORMAL));
 		button_7.addSelectionListener(new SelectionAdapter() {
-			@Override
+			
+			/*@Override
 			public void widgetSelected(SelectionEvent e) {
-				Discshop ds = new Discshop(container.getShell(), SWT.NONE);
-				ds.open();
-			}
+				MyInput input = new MyInput();
+				input.setName("留言回复");
+				input.setToolTipText("留言回复");
+				try {
+					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserQurryEditor.ID);
+				} catch (PartInitException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}*/
 		});
 		button_7.setText("\u7559\u8A00\u56DE\u590D");
 		button_7.setBounds(37, 563, 322, 134);
 		
 		Button button = new Button(container, SWT.NONE);
+		button.addSelectionListener(new SelectionAdapter() {
+			/*@Override
+			public void widgetSelected(SelectionEvent e) {
+				MyInput input = new MyInput();
+				input.setName("查找");
+				input.setToolTipText("查找");
+				try {
+					getSite().getWorkbenchWindow().getActivePage().openEditor(input, UserQurryEditor.ID);
+				} catch (PartInitException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}*/
+		});
 		button.setText("\u67E5\u627E");
 		button.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 21, SWT.NORMAL));
 		button.setBounds(37, 756, 322, 134);

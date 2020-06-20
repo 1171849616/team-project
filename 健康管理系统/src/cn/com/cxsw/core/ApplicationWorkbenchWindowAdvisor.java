@@ -11,7 +11,6 @@ import org.eclipse.ui.application.IWorkbenchWindowConfigurer;
 import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 import cn.com.cxsw.dialog.LoginDialog;
-import cn.com.cxsw.editor.ShowEditor;
 import cn.com.cxsw.util.MyInput;
 import cn.com.cxsw.view.AdminView;
 import cn.com.cxsw.view.AdminView1;
@@ -34,7 +33,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setInitialSize(new Point(1920, 1080));// 控制窗口的大小
 		configurer.setShowCoolBar(true);// 是否显示工具栏
 		configurer.setShowStatusLine(true);// 是否显示状态栏
-		configurer.setTitle("疫情填报统计系统"); //$NON-NLS-1$
+		configurer.setTitle("健康管理系统"); //$NON-NLS-1$
 	}
 	}
 	

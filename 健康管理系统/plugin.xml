@@ -48,49 +48,19 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="cn.com.cxsw.editor.DiscAddEditor"
-            id="cn.com.cxsw.editor.DiscAddEditor"
-            name="唱片添加">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.ShowEditor"
-            id="cn.com.cxsw.editor.ShowEditor"
-            name="主页">
+            class="cn.com.cxsw.editor.MyDataEditor"
+            id="cn.com.cxsw.editor.MyDataEditor"
+            name="我的数据">
       </editor>
       <editor
             class="cn.com.cxsw.editor.UserAddEditor"
             id="cn.com.cxsw.editor.UserAddEditor"
-            name="填报表单">
+            name="提交数据">
       </editor>
       <editor
             class="cn.com.cxsw.editor.UserQurryEditor"
             id="cn.com.cxsw.editor.UserQurryEditor"
-            name="学生疫情填报情况">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.UserLoveEditor"
-            id="cn.com.cxsw.editor.UserLoveEditor"
-            name="我的收藏">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.DiscEditor"
-            id="cn.com.cxsw.editor.DiscEditor"
-            name="发现">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.DiscQurryEditor"
-            id="cn.com.cxsw.editor.MusicAddEditor"
-            name="唱片浏览">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.UserShopEditor"
-            id="cn.com.cxsw.editor.UserShopEditor"
-            name="我的订单">
-      </editor>
-      <editor
-            class="cn.com.cxsw.editor.ShopQurryEditor"
-            id="cn.com.cxsw.editor.ShopQurryEditor"
-            name="订单浏览">
+            name="查看数据">
       </editor>
    </extension>
    

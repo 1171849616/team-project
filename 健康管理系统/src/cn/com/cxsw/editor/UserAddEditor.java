@@ -51,9 +51,16 @@ public class UserAddEditor extends EditorPart {
 	private String sourcePath;
 	private Text text_5;
 	public String fileName = "";
+	private Text text_1;
+	private Text text_2;
+	private Text text_4;
+	private Text text_6;
+	private Text text_7;
+	private Text text_8;
 	
 
 	public UserAddEditor() {
+		setContentDescription("\u63D0\u4EA4\u6570\u636E");
 		
 	}
 	
@@ -71,28 +78,8 @@ public class UserAddEditor extends EditorPart {
 		Label label = new Label(container, SWT.NONE);
 		label.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		label.setImage(SWTResourceManager.getImage(UserAddEditor.class, "/cn/com/cxsw/imgs/\u80CC\u666F.jpg"));
-		label.setBounds(123, 275, 48, 24);
-		label.setText("\u5B66\u53F7\uFF1A");
-		
-		Button button_1 = new Button(container, SWT.RADIO);
-		button_1.setText("\u662F");
-		button_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		button_1.setBounds(570, 318, 57, 24);
-		
-		Button button_2 = new Button(container, SWT.RADIO);
-		button_2.setText("\u5426");
-		button_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		button_2.setBounds(671, 318, 61, 24);
-		
-		Button button_3 = new Button(container, SWT.RADIO);
-		button_3.setText("\u5426");
-		button_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		button_3.setBounds(671, 461, 61, 24);
-		
-		Button button_4 = new Button(container, SWT.RADIO);
-		button_4.setText("\u662F");
-		button_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		button_4.setBounds(570, 461, 57, 24);
+		label.setBounds(123, 151, 48, 24);
+		label.setText("\u7F16\u53F7\uFF1A");
 		
 		text = new Text(container, SWT.BORDER);
 		text.addKeyListener(new KeyAdapter() {
@@ -106,40 +93,30 @@ public class UserAddEditor extends EditorPart {
 			public void focusLost(FocusEvent e) {
 			}
 		});
-		text.setBounds(205, 272, 188, 30);
+		text.setBounds(205, 151, 167, 30);
 		
 		Label label_2 = new Label(container, SWT.NONE);
 		label_2.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_2.setBounds(123, 466, 81, 24);
-		label_2.setText("\u6240\u5728\u5730\u533A\uFF1A");
+		label_2.setBounds(557, 552, 81, 24);
+		label_2.setText("\u51FA\u9662\u5EFA\u8BAE\uFF1A");
 		
 		Combo combo = new Combo(container, SWT.NONE);
-		combo.setItems(new String[] {"\u5170\u5DDE\u5E02", "\u5317\u4EAC\u5E02", "\u5357\u4EAC\u5E02", "\u4E0A\u6D77\u5E02", "\u82CF\u5DDE\u5E02", "\u53A6\u95E8\u5E02"});
-		combo.setBounds(223, 458, 143, 32);
+		combo.setItems(new String[] {"\u7559\u9662\u89C2\u5BDF", "\u5EFA\u8BAE\u51FA\u9662"});
+		combo.setBounds(684, 544, 143, 32);
 		combo.select(2);
-		
-		Label label_4 = new Label(container, SWT.NONE);
-		label_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_4.setBounds(552, 393, 184, 24);
-		label_4.setText("\u662F\u5426\u5DF2\u7ECF\u786E\u8BA4\u88AB\u611F\u67D3\uFF1A");
-		
-		Label label_5 = new Label(container, SWT.NONE);
-		label_5.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_5.setBounds(552, 263, 180, 24);
-		label_5.setText("\u662F\u5426\u6709\u75AB\u60C5\u7591\u4F3C\u75C7\u72B6\uFF1A");
 		
 		Label label_7 = new Label(container, SWT.NONE);
 		label_7.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_7.setBounds(123, 337, 73, 24);
-		label_7.setText("\u586B\u62A5\u4EBA\uFF1A");
-		text_3 = new Text(container, SWT.BORDER | SWT.PASSWORD);
+		label_7.setBounds(123, 231, 73, 24);
+		label_7.setText("\u59D3\u540D\uFF1A");
+		text_3 = new Text(container, SWT.BORDER);
 		text_3.addFocusListener(new FocusAdapter() {
 		});
-		text_3.setBounds(205, 334, 161, 30);
+		text_3.setBounds(205, 228, 167, 30);
 		
 		String id = LoginDialog.id;
 		text_5 = new Text(container, SWT.BORDER);
-		text_5.setBounds(214, 393, 167, 30);
+		text_5.setBounds(205, 315, 167, 30);
 		Button button = new Button(container, SWT.NONE);
 		button.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_SELECTION));
 		button.addSelectionListener(new SelectionAdapter() {
@@ -148,26 +125,21 @@ public class UserAddEditor extends EditorPart {
 				//1、获取用户信息
 				String id = text.getText().trim();
 				String name = text_3.getText().trim();
-				String phone = text_5.getText().trim();	
-				String city = combo.getText();
-				String ys = "";
-				if (button_1.getSelection()) {
-					ys = "是";
-				}else if(button_2.getSelection()){
-					ys = "否";
-				}
-				String sure = "";
-				if (button_4.getSelection()) {
-					sure = "是";
-				}else if(button_3.getSelection()){
-					sure = "否";
-				}
+				String tiwen = text_5.getText().trim();
+				String xueya = text_1.getText().trim();
+				String maibo = text_2.getText().trim();
+				String high = text_4.getText().trim();
+				String wight = text_6.getText().trim();
+				String health = text_7.getText().trim();
+				String segust = text_8.getText().trim();
+				String go = combo.getText();
 				Date date=new Date();
 				String d=date.toLocaleString();
 				System.out.println(d);
 				//2、执行保存sql
-				String sql="update user set u_num= ?,u_city= ?,u_ys= ?,u_sure= ?,u_date= ? where u_id = ?";
-				int res=db.update(sql, phone,city,ys,sure,date,id);
+				
+				String sql="INSERT INTO DATE(u_id,u_name,d_tiwen,d_xueya,d_maibo,d_high,d_wight,d_health, d_jianyi,d_go, d_date) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
+				int res=db.update(sql, id,name,tiwen,xueya,maibo,high,wight,health,segust,go,d);
 				if(res > 0){
 					MsgUtil.showMsgOK("提交成功!");
 				}else{
@@ -175,40 +147,16 @@ public class UserAddEditor extends EditorPart {
 				}
 			}
 		});
-		button.setBounds(418, 609, 114, 34);
+		button.setBounds(429, 648, 114, 34);
 		button.setText("\u63D0\u4EA4");
 		
-		//查询数据
-		String sql="select * from user where u_id = ?";
-		List<Map<String,Object>> list=db.query(sql,id);
-		if(list.size() == 1){
-			Map<String,Object> map=list.get(0);
-			text.setText(map.get("u_id").toString());
-			text_3.setText(map.get("u_name").toString());
-			String ys=map.get("u_ys").toString();
-			if("是".equals(ys)){
-				button_1.setSelection(true);
-			}else if("否".equals(ys)){
-				button_2.setSelection(true);
-			}else if(" ".equals(ys)){
-				return;
-			}
-			String sure=map.get("u_sure").toString();
-			if("是".equals(ys)){
-				button_4.setSelection(true);
-			}else if("否".equals(ys)){
-				button_3.setSelection(true);
-			}else if(" ".equals(sure)){
-				return;
-			}
-			combo.setText(ValidatePassWordUtil.validateObjectIsNull(map.get("u_city")));
-			text_5.setText(map.get("u_num").toString());
-		}
+		
+		
 		
 		Label label_9 = new Label(container, SWT.NONE);
 		label_9.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_9.setBounds(123, 399, 84, 24);
-		label_9.setText("\u7535\u8BDD\u53F7\u7801\uFF1A");
+		label_9.setBounds(123, 318, 73, 24);
+		label_9.setText("\u4F53\u6E29\uFF1A");
 		
 		
 		
@@ -217,17 +165,58 @@ public class UserAddEditor extends EditorPart {
 		label_10.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 15, SWT.BOLD));
 		label_10.setForeground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BORDER));
 		label_10.setBounds(124, 24, 337, 48);
-		label_10.setText("\u5B66\u751F\u75AB\u60C5\u60C5\u51B5\u6BCF\u65E5\u4E0A\u62A5\u8868");
+		label_10.setText("\u60A3\u8005\u6570\u636E\u63D0\u4EA4");
 		
 		Label label_11 = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label_11.setBounds(35, 78, 1294, 2);
 		
 		Label label_1 = new Label(container, SWT.NONE);
-		label_1.setForeground(SWTResourceManager.getColor(SWT.COLOR_RED));
+		label_1.setText("\u8840\u538B\uFF1A");
 		label_1.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		label_1.setFont(SWTResourceManager.getFont("Microsoft YaHei UI", 19, SWT.NORMAL));
-		label_1.setBounds(117, 143, 905, 57);
-		label_1.setText("\u8BF7\u4E8E\u6BCF\u65E510:00\u4E4B\u524D\u5BF9\u4E2A\u4EBA\u5065\u5EB7\u4FE1\u606F\u8FDB\u884C\u586B\u5199\u5E76\u63D0\u4EA4\uFF01");
+		label_1.setBounds(123, 390, 73, 24);
+		
+		text_1 = new Text(container, SWT.BORDER);
+		text_1.setBounds(205, 387, 167, 30);
+		
+		Label label_3 = new Label(container, SWT.NONE);
+		label_3.setText("\u8109\u640F\uFF1A");
+		label_3.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		label_3.setBounds(123, 471, 73, 24);
+		
+		text_2 = new Text(container, SWT.BORDER);
+		text_2.setBounds(205, 468, 167, 30);
+		
+		Label label_4 = new Label(container, SWT.NONE);
+		label_4.setText("\u8EAB\u9AD8\uFF1A");
+		label_4.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		label_4.setBounds(123, 552, 73, 24);
+		
+		text_4 = new Text(container, SWT.BORDER);
+		text_4.setBounds(205, 549, 167, 30);
+		
+		Label label_5 = new Label(container, SWT.NONE);
+		label_5.setText("\u4F53\u91CD\uFF1A");
+		label_5.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		label_5.setBounds(548, 148, 73, 24);
+		
+		text_6 = new Text(container, SWT.BORDER);
+		text_6.setBounds(630, 145, 167, 30);
+		
+		Label label_6 = new Label(container, SWT.NONE);
+		label_6.setText("\u5065\u5EB7\u72B6\u51B5\uFF1A");
+		label_6.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		label_6.setBounds(548, 234, 90, 24);
+		
+		text_7 = new Text(container, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL);
+		text_7.setBounds(665, 231, 176, 140);
+		
+		Label label_8 = new Label(container, SWT.NONE);
+		label_8.setText("\u533B\u751F\u5EFA\u8BAE\uFF1A");
+		label_8.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		label_8.setBounds(557, 407, 90, 24);
+		
+		text_8 = new Text(container, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL);
+		text_8.setBounds(665, 387, 176, 140);
 		
 	}
 
